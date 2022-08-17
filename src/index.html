@@ -5,37 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!--script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script-->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <link rel="stylesheet" href="./mystyle.css">
 </head>
-<body>
-    <div class="container-fluid">
-        <div class="row pt-5">
-            
-            <div class="col-12 col-xl-2 p-3">
-                <img src="../utils/Logo.png" alt="Logo">
-            </div>
-            
-            <div class="col-12 col-xl-5 align-self-center p-3">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Comments</label>
-                  </div>
-            </div>
-            
-            <div class="col-12 col-xl-5 d-flex justify-content-center p-3">
-                <div class="card w-50 text-center" style="height: 700px">
-                    <div class="card-body">
-                        <img src="../utils/Muñeco.svg" class="img-fluid" alt="Muñeco">
-                        <p class="card-text">Ningún mensaje fue encontrado
-                        </p>
-                    </div>
-                </div>
-            </div>
+<body class="m-4 grid grid-cols-1 md:grid-cols-3">
+    <nav class="">  
+        <div id='logo' class="content-center"  >
+            <img src="../utils/Logo.svg" alt="Logo de Alura">  
         </div>
-    </div>  
+    </nav>
+
+    <section>
+        <article style="color:dark-blue-300;">
+            <textarea>
+                Ingrese el texto aqui
+            </textarea>
+        </article>
+
+        <article>
+            <div style="color: gray-400;">
+                <img src="../utils/Admiracion.svg"  class="inline"> Solo letras minúsculas y sin acentos
+            </div>
+            <div class="block">
+                <button class="rounded-full" style="background-color:#0A3871;" >
+                    Encriptar
+                </button> 
+                <button class="rounded-full" style="
+                /* Light gray */
+                
+                background: #D8DFE8;
+                /* Dark blue/dark-blue-300 */
+                
+                border: 1px solid #0A3871;
+                border-radius: 24px;
+                ">
+    
+                    Desencriptar
+                </button>
+            </div>
+
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" style="background-color:#0A3871;">
+                Button
+            </button>
+        </article>
+    </section>
+
+
+    <aside>
+        <div class="hidden md:inline">
+            <img src="../utils/Muñeco.svg" alt="Muñeco amigable">
+        </div>
+        
+        <div>
+            Ningún mensaje fue encontrado
+        </div>
+        <div>
+            Ingresa el texto que desees encriptar o desencriptar.
+        </div>
+        
+    </aside>
+
 </body>
 </html>
