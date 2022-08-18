@@ -50,12 +50,36 @@ function reemplazarVocal(vocal){
     if (vocal === 'i') {
         return 'imes';
     }
-    if (vocal === 'ober') {
-        return 'u';
+    if (vocal === 'o') {
+        return 'ober';
     }
     return 'ufat';
 }
 
+//Proceso inverso
 
- 
- 
+function btnDesencriptar(){
+
+    let textEncriptado = document.getElementById("text").value.toLowerCase();
+    console.log(textEncriptado);
+    if (textEncriptado.trim() === "") {
+        console.log("necesita un mensaje");
+        return;
+    }
+    let mensajeDesencriptado = desencriptar(textEncriptado);
+    let cajaDesencriptado = document.getElementById("textEncriptado");
+    cajaDesencriptado.innerText = mensajeDesencriptado;
+
+}
+
+function desencriptar(mensaje){
+    mensaje = mensaje.replaceAll("ai", "a");
+    mensaje = mensaje.replaceAll("enter", "e");
+    mensaje = mensaje.replaceAll("imes", "i");
+    mensaje = mensaje.replaceAll("ober", "o");
+    mensaje = mensaje.replaceAll("ufat", "u");
+    console.log(mensaje);
+    return mensaje;
+}
+
+
