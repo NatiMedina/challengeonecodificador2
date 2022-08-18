@@ -35,14 +35,14 @@
         <textarea id="text" class="text-primary bg-background border-transparent w-full text-xl p-0 grow hover:border-transparent placeholder:text-2xl placeholder:text-primary" placeholder="Ingrese el texto aqui"></textarea>
 
         <article>
-            <div class="text-gray-400 text-sm">
+            <div class="text-gray-400 text-sm mb-2">
                 <img src="../utils/Admiracion.svg"  class="inline"> Solo letras minúsculas y sin acentos
             </div>
             <div class="flex flex-col sm:flex-row gap-2">
                 <button class="flex-1 bg-primary hover:bg-blue-700 text-white rounded-full pt-4 pb-4 font-l" onclick="btnEncriptar()">
                     Encriptar
                 </button> 
-                <button class="flex-1 bg-background hover:bg-grey-300 rounded-full border-2 border-primary pt-4 pb-4 font-l" onclick="btnDesencriptar()">
+                <button class="flex-1 bg-background text-primary hover:bg-grey-300 rounded-full border-2 border-primary pt-4 pb-4 font-l" onclick="btnDesencriptar()">
                     Desencriptar
                 </button>
             </div>
@@ -50,17 +50,22 @@
     </section>
 
 
-    <aside id="textEncriptado" class="bg-white rounded-3xl shadow-2xl md:col-start-5 md:col-span-2 md:row-span-full p-2  flex flex-col justify-center text-center">
-        <div  class="hidden md:inline">
+    <aside class="bg-white rounded-3xl shadow-2xl md:col-start-5 md:col-span-2 md:row-span-full p-2  flex flex-col justify-center text-center">
+        <div id="imagen" class="hidden md:inline self-center">
             <img src="../utils/Muñeco.svg" alt="Muñeco amigable">
         </div>
         
-        <div>
+        <div id="titulo" class="mb-2 md:mt-2">
             Ningún mensaje fue encontrado
         </div>
-        <p>
+        <p id="textEncriptado">
             Ingresa el texto que desees encriptar o desencriptar.
         </p>
+        <div id="botonCopiar"class="hidden flex flex-row">
+            <button class="basis-1/4 flex-1 text-primary hover:bg-primary hover:text-white rounded-full border-2 border-primary pt-4 pb-4 font-l" onclick="btnCopiar()">
+                Copiar
+            </button>
+        </div>
         
     </aside>
 <script src="./js/funciones.js"></script>

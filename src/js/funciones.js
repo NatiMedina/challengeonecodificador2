@@ -1,43 +1,37 @@
-
-function inicio(){
-    
-    let mensajeNormal = document.getElementById("text").value;
-    
-}
-
-inicio();
-
-
+const vocales = 'aeiou'
 
 function btnEncriptar(){
 
-    let mensajeNormal = document.getElementById("text").value.toLowerCase();
-    console.log(mensajeNormal);
-    if (mensajeNormal.trim() === "") {
+    let mensajeNormal = document.getElementById("text").value.toLowerCase().trim();
+    if (mensajeNormal === "") {
         console.log("necesita un mensaje");
         return;
     }
     let mensajeEncriptado = encriptar(mensajeNormal);
     let cajaEncriptado = document.getElementById("textEncriptado");
     cajaEncriptado.innerText = mensajeEncriptado;
+    ocultarImagenYTitulo();
 
+}
+
+function ocultarImagenYTitulo(){
+    let imagen = document.getElementById("imagen");
+    let titulo = document.getElementById("titulo");
+    let botonCopiar = document.getElementById("botonCopiar");
+    imagen.classList.remove("md:inline");
+    titulo.classList.add("hidden");
+    botonCopiar.classList.remove("hidden");
 }
 
 function encriptar(mensaje){
-    let arregloDeLetras = mensaje.split('');
-    for (let i = 0; i < arregloDeLetras.length; i++) {
-        const element = arregloDeLetras[i];
-        if (esVocal(element)) {
-            arregloDeLetras[i]= reemplazarVocal(element);
-        }
-        console.log(arregloDeLetras)
-    }
-    return arregloDeLetras.join().replaceAll(",", "");
+    return mensaje.split('')
+                .map( letra => esVocal(letra) ? reemplazarVocal(letra) : letra)
+                .join("");
+
 }
 
 function esVocal(letra){
-    return (letra === 'a' || letra === 'e' || 
-            letra === 'i' || letra === 'o' || letra === 'u');
+    return vocales.indexOf(letra) >= 0; 
 }
 
 function reemplazarVocal(vocal){
@@ -61,7 +55,6 @@ function reemplazarVocal(vocal){
 function btnDesencriptar(){
 
     let textEncriptado = document.getElementById("text").value.toLowerCase();
-    console.log(textEncriptado);
     if (textEncriptado.trim() === "") {
         console.log("necesita un mensaje");
         return;
@@ -69,17 +62,22 @@ function btnDesencriptar(){
     let mensajeDesencriptado = desencriptar(textEncriptado);
     let cajaDesencriptado = document.getElementById("textEncriptado");
     cajaDesencriptado.innerText = mensajeDesencriptado;
+    ocultarImagenYTitulo();
 
 }
 
 function desencriptar(mensaje){
-    mensaje = mensaje.replaceAll("ai", "a");
-    mensaje = mensaje.replaceAll("enter", "e");
-    mensaje = mensaje.replaceAll("imes", "i");
-    mensaje = mensaje.replaceAll("ober", "o");
-    mensaje = mensaje.replaceAll("ufat", "u");
-    console.log(mensaje);
-    return mensaje;
+    return mensaje.replaceAll("ai", "a")
+        .replaceAll("enter", "e")
+        .replaceAll("imes", "i")
+        .replaceAll("ober", "o")
+        .replaceAll("ufat", "u");
+}
+
+function btnCopiar(){
+    
+    let cajaDesencriptado = document.getElementById("textEncriptado");
+    navigator.clipboard.writeText(cajaDesencriptado.innerText);
 }
 
 
